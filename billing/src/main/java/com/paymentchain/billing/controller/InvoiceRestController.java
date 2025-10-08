@@ -112,7 +112,7 @@ public class InvoiceRestController {
         if (!dto.isPresent()) {
             return ResponseEntity.notFound().build();
         }
-        billingRepository.delete(dto.get());
+        billingRepository.delete(dto.orElseThrow());
         return ResponseEntity.ok().build();
     }
 
